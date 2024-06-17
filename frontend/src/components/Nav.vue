@@ -1,5 +1,31 @@
 <script setup>
 import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { supabase } from '@/lib/supabase';
+
+const session = ref();
+
+onMounted(async () => {
+  try {
+    const { data } = await supabase.auth.getSession();
+    session.value = data.session;
+
+    supabase.auth.onAuthStateChange((_, _session) => {
+      session.value = _session;
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+const logout = async () => {
+  try {
+    await supabase.auth.signOut();
+  } catch (error) {
+    console.error(error);
+  }
+  session.value = null;
+};
 const isOpened = ref(true);
 function toggleMenu() {
     isOpened.value = !isOpened.value;
