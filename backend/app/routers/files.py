@@ -10,7 +10,7 @@ def create_file(course_id: str, filename: str, file: Annotated[bytes, File()]):
         supabase.storage.from_("files").upload(path=course_id + "_" + filename + ".pdf", file=file, file_options={"content-type": "application/pdf"})
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e)) from e
-    return { "message": "File uploaded successfully" }
+    return { "message": "Dokument je uspješno dodan" }
 
 @router.get("/files/")
 def get_files_course(course_id: str):
@@ -43,4 +43,4 @@ def delete_file(filename: str):
         supabase.storage.from_("files").remove(filename)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e)) from e
-    return { "message": "File deleted successfully"}
+    return { "message": "Dokument je uspješno izbrisan"}
