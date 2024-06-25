@@ -40,7 +40,7 @@ function navigateToCourse(courseId) {
 
 <template>
   <div>
-    <h1 class="text-3xl font-bold py-4">My courses</h1>
+    <h1 class="text-3xl font-bold py-4">Moji kolegiji</h1>
 
     <div class="flex flex-col md:flex-row gap-4">
       <div v-for="course in courses" :key="course.id" @click="navigateToCourse(course.id)">

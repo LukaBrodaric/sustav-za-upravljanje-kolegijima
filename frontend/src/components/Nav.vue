@@ -40,7 +40,7 @@ function toggleMenu() {
             <div class="hidden md:block">
                 <ul v-if="session" class="flex flex-row gap-4 justify-end py-4">
                     <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/file-upload">File Upload</router-link></li>
+                    <li><router-link to="/file-upload">Dodavanje dokumenata</router-link></li>
                     <li><router-link to="/SviKolegiji">Kolegiji</router-link></li>
                     <li><button @click="logout">Logout</button></li>
                 </ul>
@@ -65,7 +65,7 @@ function toggleMenu() {
                         X
                     </button>
                     <router-link @click="toggleMenu" to="/">Home</router-link>
-                    <router-link @click="toggleMenu" to="/file-upload">File Upload</router-link>
+                    <router-link @click="toggleMenu" to="/file-upload">Dodavanje dokumenata</router-link>
                     <router-link @click="toggleMenu" to="/SviKolegiji">Kolegiji</router-link>
                     <button @click="logout">Logout</button>
                 </div>

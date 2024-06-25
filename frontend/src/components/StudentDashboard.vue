@@ -43,8 +43,8 @@ onMounted(() => {
                 }}</span></p>
         <div class="flex flex-col">
             <div class="flex flex-row justify-between px-3 py-2 bg-blue-300 rounded-t shadow-md">
-                <h2 class="text-xl font-medium basis-1/2">Files</h2>
-                <p class="text-center basis-1/4">Created at</p>
+                <h2 class="text-xl font-medium basis-1/2">Dokumenti</h2>
+                <p class="text-center basis-1/4">Napravljeno:</p>
                 <p class="basis-1/4 text-end">Link</p>
             </div>
             <div v-for="file in files" :key="file.id" class="border-b rounded-b bg-slate-100">
