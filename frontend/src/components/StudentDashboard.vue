@@ -38,27 +38,16 @@ onMounted(() => {
 
 <template>
     <div>
-        <h1 class="py-4 text-3xl font-bold">{{ course.name }}</h1>
-        <p class="pb-4">Professor: <span class="font-medium">{{ course.professors?.name }} {{ course.professors?.surname
-                }}</span></p>
-        <div class="flex flex-col">
-            <div class="flex flex-row justify-between px-3 py-2 bg-blue-300 rounded-t shadow-md">
-                <h2 class="text-xl font-medium basis-1/2">Dokumenti</h2>
-                <p class="text-center basis-1/4">Napravljeno:</p>
-                <p class="basis-1/4 text-end">Link</p>
-            </div>
-            <div v-for="file in files" :key="file.id" class="border-b rounded-b bg-slate-100">
-                <div class="flex flex-row justify-between px-3 py-2">
-                    <p class="font-medium truncate basis-1/2">{{ file.name }}.pdf</p>
-                    <p class="text-center basis-1/4">{{ new Date(file.created_at).toLocaleDateString() }}</p>
-                    <div class="basis-1/4 text-end">
-                        <a :href="file.url.signedURL" target="_blank" class="text-blue-500">File</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <Suspense>
-            <StudentsDashboard :course_id="courseId" />
-        </Suspense>
-    </div>
+    <h3 class="text-xl font-bold py-4">Dodaj studenta na kolegij</h3>
+
+    <form @submit.prevent="addStudent">
+      <div class="flex flex-col gap-4 py-4">
+        <select class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" v-model="selectedStudentId">
+          <option selected disabled value="" >Odaberi studenta</option>
+          <option v-for="student in students" :key="student.id" :value="student.id">{{ student.name }}</option>
+        </select>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Dodaj studenta</button>
+      </div>
+    </form>
+  </div>
 </template>
