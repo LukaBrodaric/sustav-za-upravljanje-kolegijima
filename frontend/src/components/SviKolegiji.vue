@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../lib/supabase';
 import { useRouter  } from 'vue-router';
 
 const router = useRouter();
@@ -25,7 +25,7 @@ const courses = ref([])
 
 async function getCourses() {
   try {
-    const res = await fetch('http://localhost:8000/SviKolegiji/')
+    const res = await fetch('http://localhost:8000/courses/')
     const { data } = await res.json()
     courses.value = data
   } catch (error) {
