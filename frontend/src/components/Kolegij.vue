@@ -20,7 +20,7 @@ async function getFiles() {
 
 async function getCourse() {
   try {
-    const res = await fetch(`http://localhost:8000/SviKolegiji/${route.params.id}`)
+    const res = await fetch(`http://localhost:8000/courses/${route.params.id}`)
     const { data } = await res.json()
     course.value = data[0]
     courseId.value = data[0].id
