@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import professors, courses
+from routers import professors, courses, files, students
 
 origins = [
     "http://localhost",
@@ -22,5 +22,7 @@ def test():
     return {"Hello": "World"}
 
 
+app.include_router(students.router)
+app.include_router(files.router)
 app.include_router(professors.router)
 app.include_router(courses.router)

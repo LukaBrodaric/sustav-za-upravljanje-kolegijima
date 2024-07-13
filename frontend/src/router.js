@@ -19,7 +19,7 @@ const router = createRouter({
       meta: { title: "Kolegiji - Sustav za upravljanje kolegijima" },
     },
     {
-      path: "/kolegij/:id",
+      path: "//SviKolegiji/:id",
       component: () => import("./components/Kolegij.vue"),
       meta: { title: "Kolegij *id* - Sustav za upravljanje kolegijima" },
     },
