@@ -1,6 +1,7 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import professors, courses, files, students
+from routers import students, professors, courses, files
 
 origins = [
     "http://localhost",
@@ -21,8 +22,12 @@ app.add_middleware(
 def test():
     return {"Hello": "World"}
 
-
 app.include_router(students.router)
-app.include_router(files.router)
 app.include_router(professors.router)
 app.include_router(courses.router)
+app.include_router(files.router)
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
