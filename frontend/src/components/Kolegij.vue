@@ -10,7 +10,7 @@ const route = useRoute()
 
 async function getFiles() {
   try {
-    const res = await fetch(`http://localhost:8000/files/?course_id=${route.params.id}`);
+    const res = await fetch(`http://178.218.163.101:8000/files/?course_id=${route.params.id}`);
     const data = await res.json()
     files.value = data
   } catch (error) {
@@ -20,7 +20,7 @@ async function getFiles() {
 
 async function getCourse() {
   try {
-    const res = await fetch(`http://localhost:8000/courses/${route.params.id}`)
+    const res = await fetch(`http://178.218.163.101:8000/courses/${route.params.id}`)
     const { data } = await res.json()
     course.value = data[0]
     courseId.value = data[0].id

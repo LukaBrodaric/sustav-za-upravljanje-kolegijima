@@ -10,7 +10,7 @@ async function uploadFile() {
 	formData.append('file', file.value);
 
   try {
-    const res = await fetch(`http://localhost:8000/files/?course_id=${selectedCourseId.value}&filename=${filename.value}`, {
+    const res = await fetch(`http://178.218.163.101:8000/files/?course_id=${selectedCourseId.value}&filename=${filename.value}`, {
       method: 'POST',
       body: formData
     })
@@ -35,7 +35,7 @@ const courses = ref([])
 
 async function getCourses() {
   try {
-    const res = await fetch('http://localhost:8000/courses/')  
+    const res = await fetch('http://178.218.163.101:8000/courses/')  
     const { data } = await res.json()
     courses.value = data
   } catch (error) {

@@ -21,7 +21,7 @@ const professors = ref([])
 
 async function getProfessors() {
   try {
-    const res = await fetch('http://localhost:8000/professors/')
+    const res = await fetch('http://178.218.163.101:8000/professors/')
     const { data } = await res.json()
     professors.value = data
   } catch (error) {
@@ -45,7 +45,7 @@ async function addProfessor() {
 		surname: professorSurname.value
 	}
   try {
-    const res = await fetch('http://localhost:8000/professors/', {
+    const res = await fetch('http://178.218.163.101:8000/professors/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(professor)

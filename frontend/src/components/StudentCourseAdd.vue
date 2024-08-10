@@ -8,7 +8,7 @@ const students = ref([]);
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:8000/students/');
+    const res = await fetch('http://178.218.163.101:8000/students/');
     const { data } = await res.json();
     students.value = data;
   } catch (error) {
@@ -17,7 +17,7 @@ onMounted(async () => {
 });
 
 function addStudent() {
-  fetch('http://localhost:8000/students-courses/', {
+  fetch('http://178.218.163.101:8000/students-courses/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

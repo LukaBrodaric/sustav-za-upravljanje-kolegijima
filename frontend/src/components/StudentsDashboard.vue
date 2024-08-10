@@ -11,7 +11,7 @@ const allStudents = ref([])
 async function getStudentsFromCourse() {
   if (props.course_id) {
     try {
-      const res = await fetch('http://localhost:8000/students/course/' + props.course_id)
+      const res = await fetch('http://178.218.163.101:8000/students/course/' + props.course_id)
       const { data } = await res.json()
       students.value = data.map(student => {
         return {
@@ -29,7 +29,7 @@ async function getStudentsFromCourse() {
 async function getAllOtherStudents() {
   if (props.course_id) {
     try {
-      const res = await fetch('http://localhost:8000/students/not-in-course/' + props.course_id)
+      const res = await fetch('http://178.218.163.101:8000/students/not-in-course/' + props.course_id)
       const { data } = await res.json()
       allStudents.value = data
     } catch (error) {
@@ -40,7 +40,7 @@ async function getAllOtherStudents() {
 
 async function removeStudentFromCourse(studentId) {
   try {
-    await fetch('http://localhost:8000/students-courses/' + studentId + '/' + props.course_id, {
+    await fetch('http://178.218.163.101:8000/students-courses/' + studentId + '/' + props.course_id, {
       method: 'DELETE'
     })
     getStudentsFromCourse()
@@ -64,7 +64,7 @@ async function addStudent() {
 	isLoading.value = true
 
   try {
-    await fetch('http://localhost:8000/students-courses/', {
+    await fetch('http://178.218.163.101:8000/students-courses/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

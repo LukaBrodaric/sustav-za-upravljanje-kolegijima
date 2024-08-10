@@ -25,7 +25,7 @@ const courses = ref([])
 
 async function getCourses() {
   try {
-    const res = await fetch('http://localhost:8000/courses/')
+    const res = await fetch('http://178.218.163.101:8000/courses/')
     const { data } = await res.json()
     courses.value = data
   } catch (error) {
