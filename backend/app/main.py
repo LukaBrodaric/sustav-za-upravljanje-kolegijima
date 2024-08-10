@@ -4,8 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import students, professors, courses, files
 
 origins = [
-    "http://localhost",
-    "http://localhost:5173",
+    "https://sustav-za-upravljanje-kolegijima.vercel.app",
 ]
 
 app = FastAPI()
